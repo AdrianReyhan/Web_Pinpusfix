@@ -1,3 +1,12 @@
+Kelompok:
+1. Adi Rifta Dwi Kurniawan (4.33.21.0.01)
+2. Adrian Reyhan Pranata (4.33.21.0.02)
+3. Hafid Rizky Aliyudo (4.33.21.0.12)
+4. Sufyan Hanif Ariyana (4.33.21.0.25)
+
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">
