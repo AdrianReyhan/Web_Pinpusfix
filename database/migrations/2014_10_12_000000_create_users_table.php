@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('alamat')->default('sssss');
+            $table->string('alamat')->default('sssas');
             $table->string('prodi')->default('TI3A');
             $table->string('kelas')->default('3');
             $table->string('semester')->default('1');
