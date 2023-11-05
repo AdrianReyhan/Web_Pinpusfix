@@ -17,9 +17,13 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
-            $table->string('alamat');
-            $table->string('jurusan');
-            $table->string('foto_ktm');
+            $table->string('alamat')->default('sssss');
+            $table->string('prodi')->default('TI3A');
+            $table->string('kelas')->default('3');
+            $table->string('semester')->default('1');
+            $table->enum('jenis_kelamin', ['L', 'P'])->default('L');
+            $table->string('foto_ktm')->default('foto');
+            $table->enum('role', ['admin', 'mahasiswa'])->default('mahasiswa');
             $table->rememberToken();
             $table->timestamps();
         });
