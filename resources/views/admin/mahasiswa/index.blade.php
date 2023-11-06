@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -19,6 +19,7 @@
             </div>
         </div>
     </div>
-
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}" defer></script>
 </div>
 @endsection
