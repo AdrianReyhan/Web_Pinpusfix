@@ -1,5 +1,7 @@
+
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-    
-});
+Route::view('/', 'auth.login');
+
+
 
 Route::get('login', 'App\Http\Controllers\AuthController@login')->name('login');
 
