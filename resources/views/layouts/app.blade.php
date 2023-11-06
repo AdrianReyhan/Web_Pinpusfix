@@ -14,7 +14,7 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
     <!-- Scripts -->
-    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
@@ -76,5 +76,8 @@
             @yield('content')
         </main>
     </div>
+
+    <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}" defer></script>
 </body>
 </html>
