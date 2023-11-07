@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link href="{{ asset('/img/logo.png') }}" rel="icon">
-    <title>Sistem Peminjaman Alat Dan Barang Polines</title>
+    <title>Dasboard Admin</title>
     <link href="{{ asset('/template/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/template/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('/template/css/ruang-admin.min.css') }}" rel="stylesheet">
@@ -29,7 +29,7 @@
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
                 <!-- TopBar -->
-                @yield('topbar')
+                @yield('navbar')
                 <!-- Topbar -->
 
                 <!-- Container Fluid-->
@@ -58,7 +58,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
                                     <a href="{{ route('logout') }}" class="btn btn-outline-danger" onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -94,8 +94,8 @@
 
 
     @stack('scripts')
-
     @include('sweetalert::alert')
+
 
 </body>
 
