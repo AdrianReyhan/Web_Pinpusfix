@@ -17,13 +17,13 @@
       <div class="main-wrapper">
         <div class="main-content">
           <div class="container">
-            <form method="post" action="{{ route('mahasiswa.store') }}" enctype="multipart/form-data">
+            <form method="post" action="{{ route('pegawai.store') }}" enctype="multipart/form-data">
               @csrf
               <div class="card mt-5">
                 <div class="card-header">
                   <div class="d-flex justify-content-between align-items-center">
-                  <h3>Tambah mahasiswa</h3>
-                  <a href="{{ route('mahasiswa.index') }}" class="btn btn-danger mb-12">Back</a>
+                  <h3>Tambah pegawai</h3>
+                  <a href="{{ route('pegawai.index') }}" class="btn btn-danger mb-12">Back</a>
                   </div>
                 </div>
                 <div class="card-body">
@@ -57,8 +57,8 @@
                       <input type="text" class="form-control" name="name" value="{{ old('nama') }}" placeholder="Nama">
                     </div>
                     <div class="mb-3">
-                        <label class="form-label">NIM</label>
-                        <input type="text" class="form-control" name="nim" value="{{ old('nim') }}" placeholder="NIM">
+                        <label class="form-label">NIP</label>
+                        <input type="text" class="form-control" name="nim" value="{{ old('nim') }}" placeholder="NIP">
                       </div>
                     <div class="mb-3">
                       <label class="form-label">Email</label>
@@ -72,22 +72,6 @@
                     <div class="mb-3">
                       <label class="form-label">Telepon</label>
                       <input type="text" class="form-control" name="notelp" value="{{ old('notelp') }}"  placeholder="No Telepeon">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Semester</label>
-                        <input type="text" class="form-control" name="semester" value="{{ old('semester') }}"  placeholder="semester">
-                    </div>
-                    <div class="mb-3">
-                      <label class="form-label">Prodi</label>
-                      <input type="text" class="form-control" name="prodi" value="{{ old('prodi') }}"  placeholder="prodi">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label">Kelas</label>
-                        <input type="text" class="form-control" name="kelas" value="{{ old('kelas') }}"  placeholder="kelas">
-                      </div>
-                    <div class="mb-3">
-                        <label class="form-label">Foto KTM</label>
-                        <input type="file" class="form-control" name="foto_ktm" value="{{ old('foto_ktm') }}"  placeholder="foto_ktm">
                     </div>
                 </div>
                 <div class="card-footer">

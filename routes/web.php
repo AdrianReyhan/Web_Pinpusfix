@@ -38,4 +38,15 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::post('mahasiswa/{id}','destroy')->name('mahasiswa.destroy');
         Route::put('mahasiswa/reset-pass/{id}', 'resetPass')->name('mahasiswa.reset_pass');
     });
+
+    Route::controller(App\Http\Controllers\Admin\PegawaiController::class)->group(function () {
+        Route::get('pegawai','index')->name('pegawai.index'); // Add this line
+        Route::get('pegawai/create', 'create')->name('pegawai.create');
+        Route::post('pegawai', 'store')->name('pegawai.store');
+        Route::get('pegawai/detail{id}', 'detail')->name('pegawai.detail');
+        Route::get('pegawai/{id}/edit', 'edit')->name('pegawai.edit');
+        Route::put('pegawai/{id}', 'update')->name('pegawai.update');
+        Route::post('pegawai/{id}','destroy')->name('pegawai.destroy');
+        Route::put('pegawai/reset-pass/{id}', 'resetPass')->name('pegawai.reset_pass');
+    });
 });
