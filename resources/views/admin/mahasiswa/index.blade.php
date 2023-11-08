@@ -38,7 +38,6 @@
                   <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
                 <p>
-                  <a class="btn btn-primary" href="{{ route('mahasiswa.create') }}">Menambah Mahasiswa</a>
                 </p>
                 <table class="table table-striped table-bordered">
                   <thead>
@@ -52,7 +51,7 @@
                       <th>Prodi</th>
                       <th>Kelas</th>
                       <th>Semester</th>
-                      {{-- <th>foto</th> --}}
+                      {{-- =<th>foto</th> --}}
                       <th colspan="3">Actions</th>
                     </tr>
                   </thead>
@@ -72,10 +71,10 @@
                           <img src="{{ asset('fotoktm/' . $mahasiswa->foto_ktm) }}" alt="Foto KTM" style="max-width: 100px; max-height: 100px;">
                         </td> --}}
                         <td>
-                          <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}" class="btn btn-secondary btn-sm mr-2">Edit</a>
+                          <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}" class="btn btn-warning btn-sm mr-2">Edit</a>
                         </td>
                         <td>
-                          <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}" class="btn btn-secondary btn-sm mr-2">Detail</a>
+                          <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}" class="btn btn-info btn-sm mr-2">Detail</a>
                         </td>
                         <td>
                           <form action="{{ route('mahasiswa.destroy', $mahasiswa->id) }}" method="POST">
