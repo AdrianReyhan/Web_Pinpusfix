@@ -23,6 +23,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
     $validatedData = $request->validate([
+        'name' => 'required',
+        'nim' => 'required',
+        'email' => 'required|email',
+        'jenis_kelamin' => 'required',
+        'notelp' => 'required',
+        'semester' => 'required',
+        'prodi' => 'required',
+        'kelas' => 'required',
         'foto_ktm' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
     ]);
 
@@ -48,6 +56,62 @@ class UserController extends Controller
     $tambah_mahasiswa->save();
 
     return redirect(route('mahasiswa.index'))->with('success', 'Berhasil ditambahkan!');
+    }
+
+    public function detail($id)
+    {
+        $mahasiswa = User::find($id);
+    
+        return view('admin.mahasiswa.detail', compact('mahasiswa'));
+    }
+
+    public function edit($id)
+    {
+        $mahasiswa = User::find($id);
+    
+        return view('admin.mahasiswa.edit', compact('mahasiswa'));
+    }
+    
+    public function update(Request $request, $id){
+        $mahasiswa = User::find($id);
+        $mahasiswa->name = $request->name;
+        $mahasiswa->nim = $request->nim;
+        $mahasiswa->email = $request->email;
+        $mahasiswa->jenis_kelamin = $request->jenis_kelamin;
+        $mahasiswa->notelp = $request->notelp;
+        $mahasiswa->semester = $request->semester;
+        $mahasiswa->prodi = $request->prodi;
+        $mahasiswa->kelas = $request->kelas;
+        
+        if($request->hasFile('foto_ktm')){
+            $request->file('foto_ktm')->move('fotoktm/', $request->file('foto_ktm')->getClientOriginalName());
+            $mahasiswa->foto_ktm = $request->file('foto_ktm')->getClientOriginalName();
+        }
+        
+        $mahasiswa->save();
+    
+        return redirect(route('mahasiswa.index'))->with('success', 'Berhasil diubah!');
+    }
+
+    public function destroy($id)
+    {
+        $mahasiswa = User::find($id);
+
+        if ($mahasiswa->delete()) {
+            return redirect(route('mahasiswa.index'))->with('success', 'Deleted!');
+        }
+
+        return redirect(route('mahasiswa.index'))->with('error', 'Sorry, unable to delete this!');
+    }
+    
+    public function resetPass($id)
+    {
+        $mahasiswa = User::find($id);
+        $mahasiswa->password = bcrypt('user123');
+        $mahasiswa->save();
+
+        // Redirect kembali ke halaman data pegawai dengan pesan sukses
+        return redirect()->route('mahasiswa.index')->with('success', 'Password pengguna terpilih berhasil direset menjadi user123.');
     }
 
 }

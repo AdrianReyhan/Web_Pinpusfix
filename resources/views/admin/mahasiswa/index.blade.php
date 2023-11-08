@@ -1,4 +1,4 @@
-@extends('layouts.master')
+@extends('layouts.admin')
 
 @section('content')
 <!doctype html>
@@ -52,7 +52,7 @@
                       <th>Prodi</th>
                       <th>Kelas</th>
                       <th>Semester</th>
-                      <th>foto</th>
+                      {{-- <th>foto</th> --}}
                       <th colspan="3">Actions</th>
                     </tr>
                   </thead>
@@ -68,20 +68,23 @@
                         <td>{{ $mahasiswa->prodi }}</td>
                         <td>{{ $mahasiswa->kelas }}</td>
                         <td>{{ $mahasiswa->semester }}</td>
-                        <td>
+                        {{-- <td>
                           <img src="{{ asset('fotoktm/' . $mahasiswa->foto_ktm) }}" alt="Foto KTM" style="max-width: 100px; max-height: 100px;">
+                        </td> --}}
+                        <td>
+                          <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}" class="btn btn-secondary btn-sm mr-2">Edit</a>
                         </td>
                         <td>
-                          <a href="#" class="btn btn-secondary btn-sm mr-2">Edit</a>
+                          <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}" class="btn btn-secondary btn-sm mr-2">Detail</a>
                         </td>
                         <td>
-                          <form action="#" method="POST">
+                          <form action="{{ route('mahasiswa.destroy', $mahasiswa->id) }}" method="POST">
                             @csrf
                                 <button class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin menghapus data ini ?')">Hapus</button>
                         </form>
                         </td>
                         <td>
-                        <form action="#" method="POST">
+                        <form action="{{ route('mahasiswa.reset_pass', $mahasiswa->id) }}" method="POST">
                           <!-- Form fields and submit button -->
                           @csrf
                           @method('PUT')

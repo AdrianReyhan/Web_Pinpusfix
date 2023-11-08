@@ -32,6 +32,7 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::get('mahasiswa','index')->name('mahasiswa.index'); // Add this line
         Route::get('mahasiswa/create', 'create')->name('mahasiswa.create');
         Route::post('mahasiswa', 'store')->name('mahasiswa.store');
+        Route::get('mahasiswa/detail{id}', 'detail')->name('mahasiswa.detail');
         Route::get('mahasiswa/{id}/edit', 'edit')->name('mahasiswa.edit');
         Route::put('mahasiswa/{id}', 'update')->name('mahasiswa.update');
         Route::post('mahasiswa/{id}','destroy')->name('mahasiswa.destroy');
