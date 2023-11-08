@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.master')
 
 @section('content')
 <!doctype html>
@@ -38,19 +38,21 @@
                   <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
                 <p>
-                  <a class="btn btn-primary" href="#">Menambah Mahasiswa</a>
+                  <a class="btn btn-primary" href="{{ route('mahasiswa.create') }}">Menambah Mahasiswa</a>
                 </p>
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
                       <th>ID</th>
+                      <th>NIM</th>
                       <th>Nama</th>
                       <th>Email</th>
                       <th>Jenis Kelamin</th>
-                      <th>Alamat</th>
+                      <th>Nomor Telepon</th>
                       <th>Prodi</th>
                       <th>Kelas</th>
                       <th>Semester</th>
+                      <th>foto</th>
                       <th colspan="3">Actions</th>
                     </tr>
                   </thead>
@@ -58,13 +60,17 @@
                     @forelse ($users as $mahasiswa)
                       <tr>
                         <td>{{ $mahasiswa->id }}</td>
+                        <td>{{ $mahasiswa->nim }}</td>
                         <td>{{ $mahasiswa->name }}</td>
                         <td>{{ $mahasiswa->email }}</td>
                         <td>{{ $mahasiswa->jenis_kelamin }}</td>
-                        <td>{{ $mahasiswa->alamat }}</td>
+                        <td>{{ $mahasiswa->notelp }}</td>
                         <td>{{ $mahasiswa->prodi }}</td>
                         <td>{{ $mahasiswa->kelas }}</td>
                         <td>{{ $mahasiswa->semester }}</td>
+                        <td>
+                          <img src="{{ asset('fotoktm/' . $mahasiswa->foto_ktm) }}" alt="Foto KTM" style="max-width: 100px; max-height: 100px;">
+                        </td>
                         <td>
                           <a href="#" class="btn btn-secondary btn-sm mr-2">Edit</a>
                         </td>
