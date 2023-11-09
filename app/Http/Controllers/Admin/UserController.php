@@ -73,6 +73,19 @@ class UserController extends Controller
     }
     
     public function update(Request $request, $id){
+
+        $validatedData = $request->validate([
+            'name' => 'required',
+            'nim' => 'required',
+            'email' => 'required|email',
+            'jenis_kelamin' => 'required',
+            'notelp' => 'required',
+            'semester' => 'required',
+            'prodi' => 'required',
+            'kelas' => 'required',
+            'foto_ktm' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+        
         $mahasiswa = User::find($id);
         $mahasiswa->name = $request->name;
         $mahasiswa->nim = $request->nim;
