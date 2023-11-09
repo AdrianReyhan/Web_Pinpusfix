@@ -95,13 +95,20 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        $mahasiswa = User::find($id);
+        $mahasiswa = User::findOrFail($id);
 
-        if ($mahasiswa->delete()) {
-            return redirect(route('mahasiswa.index'))->with('success', 'Deleted!');
+        if (!$mahasiswa) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Mahasiswa not found'
+            ]);
         }
-
-        return redirect(route('mahasiswa.index'))->with('error', 'Sorry, unable to delete this!');
+    
+        if ($mahasiswa->delete()) {
+            return redirect(route('mahasiswa.index'))->with('success', 'Akun mahasiswa dihapus');
+        } else {
+            return redirect(route('mahasiswa.index'))->with('danger', 'Akun mahasiswa gagal dihapus');
+        }
     }
     
     public function resetPass($id)

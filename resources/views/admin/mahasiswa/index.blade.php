@@ -37,8 +37,10 @@
                 @if (session('error'))
                   <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
-                <p>
-                </p>
+
+                  <p>
+                    <a class="btn btn-primary" href="{{ route('mahasiswa.create') }}">Menambah pegawai</a>
+                  </p>
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
@@ -79,7 +81,8 @@
                         <td>
                           <form action="{{ route('mahasiswa.destroy', $mahasiswa->id) }}" method="POST">
                             @csrf
-                                <button class="btn btn-danger btn-sm" onclick="return confirm('Anda yakin menghapus data ini ?')">Hapus</button>
+                            @method('DELETE')
+                            <button class="btn btn-danger btn-sm" id= "delete" type="submit">Hapus</button>
                         </form>
                         </td>
                         <td>
@@ -87,7 +90,7 @@
                           <!-- Form fields and submit button -->
                           @csrf
                           @method('PUT')
-                          <button class="btn btn-warning btn-sm ml-2 " onclick="return confirm('Anda yakin me reset password ini ?')">Reset</button>
+                          <button class="btn btn-warning btn-sm ml-2 " id = "reset" type="submit">Reset</button>
                       </form>
                         </td>
                       </tr>

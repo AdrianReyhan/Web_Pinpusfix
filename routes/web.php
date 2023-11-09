@@ -35,7 +35,7 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::get('mahasiswa/detail{id}', 'detail')->name('mahasiswa.detail');
         Route::get('mahasiswa/{id}/edit', 'edit')->name('mahasiswa.edit');
         Route::put('mahasiswa/{id}', 'update')->name('mahasiswa.update');
-        Route::post('mahasiswa/{id}','destroy')->name('mahasiswa.destroy');
+        Route::delete('mahasiswa/{id}','destroy')->name('mahasiswa.destroy');
         Route::put('mahasiswa/reset-pass/{id}', 'resetPass')->name('mahasiswa.reset_pass');
     });
 
@@ -46,7 +46,7 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::get('pegawai/detail{id}', 'detail')->name('pegawai.detail');
         Route::get('pegawai/{id}/edit', 'edit')->name('pegawai.edit');
         Route::put('pegawai/{id}', 'update')->name('pegawai.update');
-        Route::post('pegawai/{id}','destroy')->name('pegawai.destroy');
+        Route::delete('pegawai/{id}','destroy')->name('pegawai.destroy');
         Route::put('pegawai/reset-pass/{id}', 'resetPass')->name('pegawai.reset_pass');
     });
 });
