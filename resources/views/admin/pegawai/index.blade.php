@@ -38,7 +38,7 @@
                   <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
                 <p>
-                  <a class="btn btn-primary" href="{{ route('pegawai.create') }}">Menambah pegawai</a>
+                  <a class="btn btn-primary" href="{{ route('pegawai.create') }}">Menambah Pegawai</a>
                 </p>
                 <table class="table table-striped table-bordered">
                   <thead>

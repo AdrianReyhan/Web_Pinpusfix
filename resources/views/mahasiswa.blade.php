@@ -1,11 +1,11 @@
 @extends('layouts.master')
 
-@section('topbar')
-@include('part.topbar')
+@section('navbar')
+@include('layouts.mahasiswa.navbar')
 @endsection
 
 @section('sidebar')
-@include('part.sidebar')
+@include('layouts.mahasiswa.sidebar')
 @endsection
 
 @section('judul')

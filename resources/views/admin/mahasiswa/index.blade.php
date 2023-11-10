@@ -39,7 +39,7 @@
                 @endif
 
                   <p>
-                    <a class="btn btn-primary" href="{{ route('mahasiswa.create') }}">Menambah pegawai</a>
+                    <a class="btn btn-primary" href="{{ route('mahasiswa.create') }}">Menambah Mahasiswa</a>
                   </p>
                 <table class="table table-striped table-bordered">
                   <thead>
