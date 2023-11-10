@@ -25,7 +25,7 @@
         <div id="collapseForm" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
                 <h6 class="collapse-header">Kategori</h6>
-                <a class="collapse-item" href="/kategori">Lihat Semua Barang</a>
+                <a class="collapse-item" href="/mahasiswa/pinjam">Lihat Semua Barang</a>
 
                 @if (Auth::user()->isAdmin == 1)
                     <a class="collapse-item" href="/kategori/create">Tambah Barang</a>
@@ -45,7 +45,7 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pinjam Barang</h6>
-                    <a class="collapse-item" href="/peminjaman/create">Pinjam Barang</a>
+                    <!-- <a class="collapse-item" href="/peminjaman/create">Pinjam Barang</a> -->
                     <a class="collapse-item" href="/peminjaman">Pinjaman Saya</a>
                 </div>
             </div>
