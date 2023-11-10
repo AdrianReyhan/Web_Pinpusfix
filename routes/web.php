@@ -58,3 +58,11 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::delete('barang/{id}','destroy')->name('barang.destroy');
     });
 });
+
+
+Route::prefix('mahasiswa')->middleware(['auth', 'checkRole:mahasiswa'])->group(function () {
+
+    Route::controller(App\Http\Controllers\Mahasiswa\PinjamController::class)->group(function () {
+        Route::get('pinjam','index')->name('pinjam.index'); // Add this line
+    });
+});

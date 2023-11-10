@@ -47,7 +47,7 @@
                       <th>ID</th>
                       <th>Foto Barang</th>
                       <th>Nama</th>
-                      <th>Jumlah Ada</th>
+                      <th>Jumlah Tersedia</th>
                       <th>Jumlah Rusak</th>
                       <th>Jumlah Hilang</th>
                       <th colspan="3">Actions</th>

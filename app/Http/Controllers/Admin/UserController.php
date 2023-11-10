@@ -24,8 +24,8 @@ class UserController extends Controller
     {
     $validatedData = $request->validate([
         'name' => 'required',
-        'nim' => 'required',
-        'email' => 'required|email',
+        'nim' => 'required|unique:users',
+        'email' => 'required|email|unique:users',
         'jenis_kelamin' => 'required',
         'notelp' => 'required',
         'semester' => 'required',
@@ -76,8 +76,8 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
             'name' => 'required',
-            'nim' => 'required',
-            'email' => 'required|email',
+            'nim' => 'required|unique:users',
+            'email' => 'required|email|unique:users',
             'jenis_kelamin' => 'required',
             'notelp' => 'required',
             'semester' => 'required',
