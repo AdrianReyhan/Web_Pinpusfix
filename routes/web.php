@@ -66,3 +66,6 @@ Route::prefix('mahasiswa')->middleware(['auth', 'checkRole:mahasiswa'])->group(f
         Route::get('pinjam','index')->name('pinjam.index'); // Add this line
     });
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
