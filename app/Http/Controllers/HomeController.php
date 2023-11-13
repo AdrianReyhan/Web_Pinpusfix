@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Foundation\Auth\User;
 
 use Illuminate\Http\Request;
 
@@ -20,6 +21,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $users = User::where('role', 'mahasiswa')->get();
+
+        return view('admin.mahasiswa.index', ['users' => $users]);
     }
 }
