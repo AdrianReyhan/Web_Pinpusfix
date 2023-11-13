@@ -71,6 +71,11 @@ Route::prefix('mahasiswa')->middleware(['auth', 'checkRole:mahasiswa'])->group(f
         Route::delete('checkout/{id}','destroy')->name('checkout.destroy');
         Route::put('checkout/submit/{id}', 'submit')->name('checkout.submit');
     });
+
+    Route::controller(App\Http\Controllers\Mahasiswa\HistoryController::class)->group(function () {
+        Route::get('history','index')->name('history.index');
+        Route::get('history/detail/(id}','detail')->name('history.detail');
+    });
 });
 Auth::routes();
 

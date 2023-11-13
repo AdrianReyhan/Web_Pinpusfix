@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('jumlah_total');
             $table->text('pesan');
             $table->enum('pinjam_status', ['0', '1'])->default('0');
-            $table->enum('status', ['pinjam', 'batal', 'kembali', 'denda', 'pending'])->default('pending');
+            $table->enum('status', ['setuju', 'pinjam', 'batal', 'kembali', 'denda', 'pending'])->default('pending');
             $table->timestamps();
         });
     }
