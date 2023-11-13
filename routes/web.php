@@ -63,7 +63,13 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
 Route::prefix('mahasiswa')->middleware(['auth', 'checkRole:mahasiswa'])->group(function () {
 
     Route::controller(App\Http\Controllers\Mahasiswa\PinjamController::class)->group(function () {
-        Route::get('pinjam','index')->name('pinjam.index'); // Add this line
+        Route::get('pinjam','index')->name('pinjam.index');
+        Route::post('pinjam/{id}','pinjam')->name('pinjam.pinjam');
+        Route::get('checkout','checkout')->name('pinjam.checkout');
+        Route::get('checkout/{id}/edit', 'edit')->name('checkout.edit');
+        Route::put('checkout/{id}', 'update')->name('checkout.update');
+        Route::delete('checkout/{id}','destroy')->name('checkout.destroy');
+        Route::put('checkout/submit/{id}', 'submit')->name('checkout.submit');
     });
 });
 Auth::routes();

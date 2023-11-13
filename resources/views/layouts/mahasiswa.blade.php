@@ -95,3 +95,41 @@
     </div>
 </div>
 @endsection
+
+
+<script src="{{ asset('admin/vendors/base/vendor.bundle.base.js') }}"></script>
+<script src="{{ asset('admin/vendors/datatables.net/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js') }}"></script>
+
+<script src="{{ asset('admin/js/off-canvas.js') }}"></script>
+<script src="{{ asset('admin/js/hoverable-collapse.js') }}"></script>
+<script src="{{ asset('admin/js/template.js') }}"></script>
+
+<script src="{{ asset('admin/js/dashboard.js') }}"></script>
+<script src="{{ asset('admin/js/data-table.js') }}"></script>
+<script src="{{ asset('admin/js/jquery.dataTables.js') }}"></script>
+<script src="{{ asset('admin/js/dataTables.bootstrap4.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
+<script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    $(document).ready(function() {
+        $(document).on('click', '#delete', function(e) {
+            e.preventDefault();
+            var form = $(this).closest('form');
+            Swal.fire({
+                title: 'Apakah Anda yakin?',
+                text: "Anda tidak dapat mengembalikan tindakan ini!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#d33',
+                cancelButtonColor: '#3085d6',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit();
+                }
+            });
+        });
+    });
+</script>
