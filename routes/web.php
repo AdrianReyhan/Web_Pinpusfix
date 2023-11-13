@@ -57,6 +57,17 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::put('barang/{id}', 'update')->name('barang.update');
         Route::delete('barang/{id}','destroy')->name('barang.destroy');
     });
+
+    Route::controller(App\Http\Controllers\Admin\ApproveController::class)->group(function () {
+        Route::get('approve', 'index')->name('aprove.index');
+        Route::get('history/detail/{id}', 'detail')->name('history.detail');
+        Route::post('aprove/{id}/setuju', 'setuju')->name('aprove.setuju');
+        Route::post('aprove/{id}/tolak', 'tolak')->name('aprove.tolak');
+        Route::post('aprove/{id}/pinjam', 'pinjam')->name('aprove.pinjam');
+        Route::post('aprove/{id}/batal', 'batal')->name('aprove.batal');
+        Route::post('aprove/{id}/kembali', 'kembali')->name('aprove.kembali');
+    });
+    
 });
 
 
