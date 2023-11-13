@@ -25,4 +25,6 @@ class HomeController extends Controller
 
         return view('admin.mahasiswa.index', ['users' => $users]);
     }
+
+    
 }
