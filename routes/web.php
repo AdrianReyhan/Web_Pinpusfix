@@ -60,7 +60,7 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
 
     Route::controller(App\Http\Controllers\Admin\ApproveController::class)->group(function () {
         Route::get('approve', 'index')->name('aprove.index');
-        Route::get('history/detail/{id}', 'detail')->name('history.detail');
+        Route::get('approve/detail/{user_id}', 'detail')->name('approve.detail');
         Route::post('aprove/{id}/setuju', 'setuju')->name('aprove.setuju');
         Route::post('aprove/{id}/tolak', 'tolak')->name('aprove.tolak');
         Route::post('aprove/{id}/pinjam', 'pinjam')->name('aprove.pinjam');

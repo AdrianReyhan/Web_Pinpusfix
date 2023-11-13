@@ -71,8 +71,8 @@
                         <td>{{ $peminjam->pesan }}</td>
                         <td>{{ $peminjam->status }}</td>
                         <td>
-                            <a href="{{ route('history.detail', $peminjam->id) }}" class="btn btn-warning btn-sm">Detail</a>
-                        </td>
+                          <a href="{{ route('approve.detail', ['user_id' => $peminjam->id]) }}" class="btn btn-warning btn-sm">Detail</a>
+                      </td>
                         <td class="text-center">
                             <div class="btn-group" role="group">
                               @if ($peminjam->status === 'pending')

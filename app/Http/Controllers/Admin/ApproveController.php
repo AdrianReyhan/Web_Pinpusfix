@@ -17,10 +17,10 @@ class ApproveController extends Controller
         return view('admin.history.index', compact('peminjams'));
     }
 
-    public function detail($id){
-        $peminjams = Peminjam::where('user_id', $id)->where('pinjam_status',"1")->first();
-        $pinjam_detail = Peminjaman_detail::where('pinjam_id', $peminjams->id)->get();
+    public function detail($user_id){
+    $peminjams = Peminjam::where('pinjam_status', "1")->first();
+    $pinjam_detail = Peminjaman_detail::where('pinjam_id', $peminjams->id)->get();
 
-        return view('admin.history.detail', compact('peminjams', 'pinjam_detail'));
-    }
+    return view('admin.history.detail', compact('peminjams', 'pinjam_detail'));
+}
 }
