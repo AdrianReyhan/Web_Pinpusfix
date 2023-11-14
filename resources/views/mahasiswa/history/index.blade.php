@@ -57,7 +57,7 @@
                       <th>Total Barang</th>
                       <th>Pesan</th>
                       <th>Status</th>
-                      <th>Actions</th>
+                      <th colspan="3">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -73,6 +73,7 @@
                         <td>
                             <a href="{{ route('history.detail', $peminjam->id) }}" class="btn btn-warning btn-sm">Detail</a>
                         </td>
+                      </tr>
                       @endforeach
                   </tbody>
                 </table>

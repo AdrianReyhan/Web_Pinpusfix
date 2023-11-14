@@ -46,7 +46,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pinjam Barang</h6>
                     <!-- <a class="collapse-item" href="/peminjaman/create">Pinjam Barang</a> -->
-                    <a class="collapse-item" href="/peminjaman">Pinjaman Saya</a>
+                    <a class="collapse-item" href="/mahasiswa/history">Pinjaman Saya</a>
                 </div>
             </div>
         </li>

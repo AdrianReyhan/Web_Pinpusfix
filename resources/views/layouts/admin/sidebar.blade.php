@@ -96,7 +96,7 @@
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">History</h6>
-                    <a class="collapse-item" href="/peminjaman/create">History Peminjaman</a>
+                    <a class="collapse-item" href="/admin/approve">History Peminjaman</a>
                     <!-- <a class="collapse-item" href="/peminjaman">Pinjaman Saya</a> -->
                 </div>
             </div>

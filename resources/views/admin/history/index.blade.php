@@ -73,7 +73,7 @@
                         <td>
                           <a href="{{ route('approve.detail', ['user_id' => $peminjam->id]) }}" class="btn btn-warning btn-sm">Detail</a>
                       </td>
-                        <td class="text-center">
+                        <td class="text-center" style="margin-left: 10px;">
                             <div class="btn-group" role="group">
                               @if ($peminjam->status === 'pending')
                                 <form action="{{ route('aprove.setuju', $peminjam->id) }}" method="POST">
@@ -82,7 +82,7 @@
                                 </form>
                                 <form action="{{ route('aprove.tolak', $peminjam->id) }}" method="POST">
                                   @csrf
-                                  <button type="submit" class="btn btn-danger btn-sm">Tolak</button>
+                                  <button type="submit" class="btn btn-danger btn-sm ml-2">Tolak</button>
                                 </form>
                               @elseif ($peminjam->status === 'setuju')
                                 <form action="{{ route('aprove.pinjam', $peminjam->id) }}" method="POST">
