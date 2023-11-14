@@ -51,6 +51,7 @@
                   <thead>
                     <tr>
                       <th>ID</th>
+                      <th>Nama</th>
                       <th>Tanggal Memesan</th>
                       <th>Tanggal Meminjam</th>
                       <th>Tanggal Kembali</th>
@@ -64,6 +65,7 @@
                       @foreach ($peminjams as $peminjam)
                       <tr>
                         <td>{{ $peminjam->id }}</td>
+                        <td>{{ $peminjam->user->name }}</td>
                         <td>{{ $peminjam->tgl_pesan }}</td>
                         <td>{{ $peminjam->tgl_pinjam }}</td>
                         <td>{{ $peminjam->tgl_kembali }}</td>
