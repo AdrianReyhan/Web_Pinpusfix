@@ -62,10 +62,15 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::get('approve', 'index')->name('aprove.index');
         Route::get('approve/detail/{user_id}', 'detail')->name('approve.detail');
         Route::post('aprove/{id}/setuju', 'setuju')->name('aprove.setuju');
-        Route::post('aprove/{id}/tolak', 'tolak')->name('aprove.tolak');
-        Route::post('aprove/{id}/pinjam', 'pinjam')->name('aprove.pinjam');
-        Route::post('aprove/{id}/batal', 'batal')->name('aprove.batal');
-        Route::post('aprove/{id}/kembali', 'kembali')->name('aprove.kembali');
+        Route::get('aprove/{id}/tolak', 'tolak')->name('aprove.tolak');
+        Route::put('aprove/{id}', 'tolak_update')->name('tolak.update');
+        Route::get('aprove/{id}/denda', 'denda')->name('aprove.denda');
+        Route::put('aprove/denda/{id}', 'denda_update')->name('denda.update');
+        Route::get('aprove/{id}/kembali', 'kembali')->name('aprove.kembali');
+        Route::put('aprove/kembali/{id}', 'kembali_update')->name('kembali.update');
+        Route::get('aprove/{id}/lunas', 'lunas')->name('aprove.lunas');
+        Route::get('aprove/{id}/kembalidenda', 'kembali_denda')->name('kembali.denda');
+        Route::put('aprove/kembalidenda/{id}', 'kembali_denda_update')->name('kembali.denda.update');
     });
     
 });

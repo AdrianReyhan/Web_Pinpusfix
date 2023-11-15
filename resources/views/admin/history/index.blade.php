@@ -27,6 +27,10 @@
     }
     </style>
 
+    .button-container {
+      margin-bottom: 12px;
+    }
+
   </head>
   <body>
     <div id="app">
@@ -82,29 +86,25 @@
                                   @csrf
                                   <button type="submit" class="btn btn-success btn-sm">Setuju</button>
                                 </form>
-                                <form action="{{ route('aprove.tolak', $peminjam->id) }}" method="POST">
-                                  @csrf
-                                  <button type="submit" class="btn btn-danger btn-sm ml-2">Tolak</button>
-                                </form>
+                                <a href="{{ route('aprove.tolak' , $peminjam->id) }}" class="btn btn-danger mb-12">Tolak</a>
                               @elseif ($peminjam->status === 'setuju')
-                                <form action="{{ route('aprove.pinjam', $peminjam->id) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success btn-sm">Dipinjam</button>
-                                </form>
-                                <form action="{{ route('aprove.batal', $peminjam->id) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-danger btn-sm">Batal</button>
-                                </form>
-                              @elseif ($peminjam->status === 'tolak')
+                              <div class="button-container">
+                                <a href="{{ route('aprove.kembali', $peminjam->id) }}" class="btn btn-success mb-12">Kembali</a>
+                              </div>
+                              <div class="button-container">
+                                <a href="{{ route('aprove.denda', $peminjam->id) }}" class="btn btn-danger mb-12">Denda</a>
+                              </div>
+                              @elseif ($peminjam->status === 'batal')
                                 <div>
                                   <button class="btn btn-danger btn-sm" disabled>Tolak</button>
                                 </div>
-                      
-                              @elseif ($peminjam->status === 'pinjam')
-                                <form action="{{ route('aprove.kembali', $peminjam->id) }}" method="POST">
-                                    @csrf
-                                    <button type="submit" class="btn btn-success btn-sm">Aprove</button>
-                                </form>
+                                @elseif ($peminjam->status === 'denda')
+                                <div class="button-container">
+                                  <a href="{{ route('kembali.denda', $peminjam->id) }}" class="btn btn-success mb-12">Kembali</a>
+                                </div>
+                                {{-- <div class="button-container">
+                                  <a href="{{ route('aprove.lunas', $peminjam->id) }}" class="btn btn-danger mb-12">Lunas</a>
+                                </div> --}}
                                 @endif
                             </div>
                           </td>
