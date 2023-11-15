@@ -62,7 +62,11 @@
                       <tr>
                         <td>{{ $mahasiswa->id }}</td>
                         <td>{{ $mahasiswa->nim }}</td>
-                        <td>{{ $mahasiswa->name }}</td>
+                        <td>
+                        <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}">
+                          {{ $mahasiswa->name }}
+                        </a>
+                        </td>
                         <td>{{ $mahasiswa->email }}</td>
                         <td>{{ $mahasiswa->jenis_kelamin }}</td>
                         <td>{{ $mahasiswa->notelp }}</td>
@@ -73,11 +77,11 @@
                           <img src="{{ asset('fotoktm/' . $mahasiswa->foto_ktm) }}" alt="Foto KTM" style="max-width: 100px; max-height: 100px;">
                         </td> --}}
                         <td>
-                          <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}" class="btn btn-warning btn-sm mr-2">Edit</a>
+                          <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}" class="btn btn-secondary btn-sm">Edit</a>
                         </td>
-                        <td>
-                          <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}" class="btn btn-info btn-sm mr-2">Detail</a>
-                        </td>
+                        <!-- <td>
+                          <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}" class="btn btn-info btn-sm">Detail</a>
+                        </td> -->
                         <td>
                           <form action="{{ route('mahasiswa.destroy', $mahasiswa->id) }}" method="POST">
                             @csrf
