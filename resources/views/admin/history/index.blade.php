@@ -83,20 +83,20 @@
                     <td>
                       <a href="{{ route('approve.detail', ['user_id' => $peminjam->id]) }}" class="btn btn-warning btn-sm">Detail</a>
                     </td>
-                    <td class="text-center" style="margin-left: 10px;">
+                    <td class="text-center">
                       <div class="btn-group" role="group">
                         @if ($peminjam->status === 'pending')
                         <form action="{{ route('aprove.setuju', $peminjam->id) }}" method="POST">
                           @csrf
                           <button type="submit" class="btn btn-success btn-sm">Setuju</button>
                         </form>
-                        <a href="{{ route('aprove.tolak' , $peminjam->id) }}" class="btn btn-danger btn-sm">Tolak</a>
+                        <a href="{{ route('aprove.tolak', $peminjam->id) }}" class="btn btn-danger btn-sm ml-2">Tolak</a>
                         @elseif ($peminjam->status === 'setuju')
                         <div class="button-container">
                           <a href="{{ route('aprove.kembali', $peminjam->id) }}" class="btn btn-success btn-sm">Kembali</a>
                         </div>
                         <div class="button-container">
-                          <a href="{{ route('aprove.denda', $peminjam->id) }}" class="btn btn-danger btn-sm">Denda</a>
+                          <a href="{{ route('aprove.denda', $peminjam->id) }}" class="btn btn-danger btn-sm ml-2">Denda</a>
                         </div>
                         @elseif ($peminjam->status === 'batal')
                         <div>
@@ -106,20 +106,17 @@
                         <div class="button-container">
                           <a href="{{ route('kembali.denda', $peminjam->id) }}" class="btn btn-success btn-sm">Kembali</a>
                         </div>
-                        {{-- <div class="button-container">
-                                  <a href="{{ route('aprove.lunas', $peminjam->id) }}" class="btn btn-danger mb-12">Lunas</a>
-                      </div> --}}
-                      @endif
+                        @endif
+                      </div>
+                    </td>
+                    @endforeach
+                </tbody>
+              </table>
             </div>
-            </td>
-            @endforeach
-            </tbody>
-            </table>
           </div>
         </div>
       </div>
     </div>
-  </div>
   </div>
 
   <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
