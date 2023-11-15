@@ -48,13 +48,13 @@
                       <th>NIM</th>
                       <th>Nama</th>
                       <th>Email</th>
-                      <th>Jenis Kelamin</th>
-                      <th>Nomor Telepon</th>
+                      <!-- <th>Jenis Kelamin</th>
+                      <th>Nomor Telepon</th> -->
                       <th>Prodi</th>
                       <th>Kelas</th>
                       <th>Semester</th>
                       {{-- =<th>foto</th> --}}
-                      <th colspan="3">Actions</th>
+                      <th colspan="4">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -63,13 +63,13 @@
                         <td>{{ $mahasiswa->id }}</td>
                         <td>{{ $mahasiswa->nim }}</td>
                         <td>
-                        <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}">
+                        <!-- <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}"> -->
                           {{ $mahasiswa->name }}
-                        </a>
+                        <!-- </a> -->
                         </td>
                         <td>{{ $mahasiswa->email }}</td>
-                        <td>{{ $mahasiswa->jenis_kelamin }}</td>
-                        <td>{{ $mahasiswa->notelp }}</td>
+                        <!-- <td>{{ $mahasiswa->jenis_kelamin }}</td>
+                        <td>{{ $mahasiswa->notelp }}</td> -->
                         <td>{{ $mahasiswa->prodi }}</td>
                         <td>{{ $mahasiswa->kelas }}</td>
                         <td>{{ $mahasiswa->semester }}</td>
@@ -79,9 +79,9 @@
                         <td>
                           <a href="{{ route('mahasiswa.edit', $mahasiswa->id) }}" class="btn btn-secondary btn-sm">Edit</a>
                         </td>
-                        <!-- <td>
+                        <td>
                           <a href="{{ route('mahasiswa.detail', $mahasiswa->id) }}" class="btn btn-info btn-sm">Detail</a>
-                        </td> -->
+                        </td>
                         <td>
                           <form action="{{ route('mahasiswa.destroy', $mahasiswa->id) }}" method="POST">
                             @csrf
@@ -94,7 +94,7 @@
                           <!-- Form fields and submit button -->
                           @csrf
                           @method('PUT')
-                          <button class="btn btn-warning btn-sm ml-2 " id = "reset" type="submit">Reset</button>
+                          <button class="btn btn-warning btn-sm" id = "reset" type="submit">Reset</button>
                       </form>
                         </td>
                       </tr>
