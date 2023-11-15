@@ -65,7 +65,7 @@ class BarangController extends Controller
             'jumlah_tersedia' => 'required',
             'jumlah_rusak' => 'required',
             'jumlah_hilang' => 'required',
-            'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+            /* 'foto' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048', */
         ]);
 
 
@@ -80,7 +80,7 @@ class BarangController extends Controller
             $alat->foto = $request->file('foto')->getClientOriginalName();
         }
 
-        $alat->save();
+        $alat->update();
 
         return redirect(route('barang.index'))->with('success', 'Berhasil diubah!');
     }
