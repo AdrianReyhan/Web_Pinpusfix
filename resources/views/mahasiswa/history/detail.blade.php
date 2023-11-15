@@ -27,7 +27,11 @@
           <div class="container">
             <div class="card mt-5">
               <div class="card-header" style="background-color: #4169E1	; color: white; text-align: center;">
+                <div class="d-flex justify-content-between align-items-center">
                 <h3>Data Peminjaman Detail</h3>
+                <a href="{{ route('history.index') }}" class="btn btn-danger mb-12">Back</a>
+                
+              </div>
               </div>
               <div class="card-body">
                 @if (session('success'))

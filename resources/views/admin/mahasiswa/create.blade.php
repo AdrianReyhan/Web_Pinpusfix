@@ -22,7 +22,7 @@
           <form method="post" action="{{ route('mahasiswa.store') }}" enctype="multipart/form-data">
             @csrf
             <div class="card mt-5">
-              <div class="card-header">
+              <div class="card-header" style="background-color: #4169E1	; color: white; text-align: center;">
                 <div class="d-flex justify-content-between align-items-center">
                   <h3>Tambah mahasiswa</h3>
                   <a href="{{ route('mahasiswa.index') }}" class="btn btn-danger mb-12">Back</a>
