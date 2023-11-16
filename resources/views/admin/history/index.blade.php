@@ -73,7 +73,25 @@
                   @foreach ($peminjams as $peminjam)
                   <tr>
                     <td>{{ $peminjam->id }}</td>
-                    <td>{{ $peminjam->user->name }}</td>
+                    <td class="show-photo" data-photo="{{ asset('fotoktm/' . $peminjam->user->foto_ktm) }} " style="color: blue; cursor: pointer;">{{ $peminjam->user->name }}</td>
+
+                    <div class="modal fade" id="photoModal" tabindex="-1" role="dialog" aria-labelledby="photoModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="photoModalLabel">Foto KTM</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <!-- Display the user photo here -->
+                            <img id="userPhoto" src="" alt="User Photo" style="max-width: 100%; max-height: 100%;">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
                     <td>{{ $peminjam->tgl_pesan }}</td>
                     <td>{{ $peminjam->tgl_pinjam }}</td>
                     <td>{{ $peminjam->tgl_kembali }}</td>
@@ -121,6 +139,27 @@
 
   <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
   <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}" defer></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Get all elements with the class 'show-photo'
+      var showPhotoElements = document.querySelectorAll('.show-photo');
+  
+      // Attach a click event listener to each element
+      showPhotoElements.forEach(function (element) {
+        element.addEventListener('click', function () {
+          // Get the photo URL from the data attribute
+          var photoUrl = element.getAttribute('data-photo');
+  
+          // Set the photo source in the modal
+          document.getElementById('userPhoto').src = photoUrl;
+  
+          // Show the modal
+          $('#photoModal').modal('show');
+        });
+      });
+    });
+  </script>
 
 </body>
 

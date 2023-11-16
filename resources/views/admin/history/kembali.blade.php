@@ -12,6 +12,33 @@
      
     <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
+    <style>
+      th {
+        text-align: center;
+      }
+      td {
+        text-align: center;
+      }
+
+      .panel-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+      .card {
+            width: 45%;
+            margin: 10px;
+        }
+
+      .card img {
+            max-width: 100px;
+            max-height: 100px;
+            display: block;
+            margin: 0 auto;
+        }
+    </style>
+
   </head>
   <body>
     <div id="app">
@@ -53,6 +80,41 @@
                     @if (session('error'))
                       <div class="alert alert-danger">{{ session('error') }}</div>
                     @endif
+
+                    <div class="panel-container">
+                      @forelse ($pinjam_details as $peminjam_detail)
+                      <div class="card">
+                        <div class="card-body">
+                          <div class="row">
+                            <div class="col-md-5 mx-auto">
+                              <img src="{{ asset('fotobarang/' . $peminjam_detail->barang->foto) }}" alt="Foto Barang">
+                            </div>
+                            <div class="col-md-7">
+                              <p>Pinjam:</p>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" name="jumlah" placeholder=" {{ $peminjam_detail->jumlah}}" value="{{ $peminjam_detail->jumlah}}" aria-label="Jumlah yang ingin dipinjam" aria-describedby="basic-addon2" readonly>
+                                </div>
+                              <h4>{{ $peminjam_detail->nama_barang }}</h4>
+                              <p>Tersedia:</p>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" name="jumlah_tersedia" placeholder="{{ $peminjam_detail->barang->jumlah_tersedia }}" value="{{ $peminjam_detail->barang->jumlah_tersedia}}" aria-label="Jumlah yang ingin dipinjam" aria-describedby="basic-addon2">
+                                </div>
+                                <p>Rusak:</p>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" name="jumlah_rusak" placeholder=" {{ $peminjam_detail->barang->jumlah_rusak }}" value="{{ $peminjam_detail->barang->jumlah_rusak}}" aria-label="Jumlah yang ingin dipinjam" aria-describedby="basic-addon2">
+                                </div>
+                              <p>Hilang:</p>
+                                <div class="input-group mb-3">
+                                  <input type="text" class="form-control" name="jumlah_hilang" placeholder=" {{ $peminjam_detail->barang->jumlah_hilang }}" value="{{ $peminjam_detail->barang->jumlah_hilang}}" aria-label="Jumlah yang ingin dipinjam" aria-describedby="basic-addon2">
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      @empty
+                      <p>No record found!</p>
+                      @endforelse
+                    </div>
                       <div class="mb-3">
                         <label class="form-label">Pesan</label>
                         <input type="text" class="form-control" name="pesan" value="{{ $peminjams->pesan }}" placeholder="Pesan">

@@ -30,6 +30,7 @@ class ApproveController extends Controller
         $peminjams = Peminjam::where('pinjam_status', "1")->first();
         $pinjam_details = Peminjaman_detail::where('pinjam_id', $peminjams->id)->get();
         $peminjams->status = "setuju";
+        $peminjams->pesan = "Barang boleh dipinjam";
         $peminjams->update();
 
         foreach ($pinjam_details as $pinjam_detail)
@@ -63,8 +64,9 @@ class ApproveController extends Controller
     public function kembali($id)
     {
         $peminjams = Peminjam::find($id);
+        $pinjam_details = Peminjaman_detail::where('pinjam_id', $peminjams->id)->get();
         
-        return view('admin.history.kembali', compact('peminjams'));
+        return view('admin.history.kembali', compact('peminjams', 'pinjam_details'));
     }
 
     public function kembali_update(Request $request, $id)
@@ -78,7 +80,9 @@ class ApproveController extends Controller
         foreach ($pinjam_details as $pinjam_detail)
         {
             $barang = Barang::where('id', $pinjam_detail->barang_id)->first();
-            $barang->jumlah_tersedia = $barang->jumlah_tersedia+$pinjam_detail->jumlah;
+            $barang->jumlah_tersedia = $request->jumlah_tersedia;
+            $barang->jumlah_rusak = $request->jumlah_rusak;
+            $barang->jumlah_hilang = $request->jumlah_hilang;
             $barang->update();
         }
 
@@ -105,8 +109,9 @@ class ApproveController extends Controller
     public function kembali_denda($id)
     {
         $peminjams = Peminjam::find($id);
+        $pinjam_details = Peminjaman_detail::where('pinjam_id', $peminjams->id)->get();
         
-        return view('admin.history.kembalidenda', compact('peminjams'));
+        return view('admin.history.kembalidenda', compact('peminjams', 'pinjam_details'));
     }
 
     public function kembali_denda_update(Request $request, $id)
@@ -120,7 +125,9 @@ class ApproveController extends Controller
         foreach ($pinjam_details as $pinjam_detail)
         {
             $barang = Barang::where('id', $pinjam_detail->barang_id)->first();
-            $barang->jumlah_tersedia = $barang->jumlah_tersedia+$pinjam_detail->jumlah;
+            $barang->jumlah_tersedia = $request->jumlah_tersedia;
+            $barang->jumlah_rusak = $request->jumlah_rusak;
+            $barang->jumlah_hilang = $request->jumlah_hilang;
             $barang->update();
         }
 
