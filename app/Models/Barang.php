@@ -16,4 +16,9 @@ class Barang extends Model
         'jumlah_hilang',
         'foto',
     ];
+
+    public function pinjam_detail()
+    {
+        return $this->hasMany(Peminjaman_detail::class, 'barang_id');
+    }
 }

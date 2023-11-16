@@ -7,7 +7,7 @@
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
-        <a class="nav-link" href="/home">
+        <a class="nav-link" href="/mahasiswa/pinjam">
             <i class="fa-solid fa-house"></i>
             <span>Home</span></a>
     </li>
@@ -46,7 +46,7 @@
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Pinjam Barang</h6>
                     <!-- <a class="collapse-item" href="/peminjaman/create">Pinjam Barang</a> -->
-                    <a class="collapse-item" href="/peminjaman">Pinjaman Saya</a>
+                    <a class="collapse-item" href="/mahasiswa/history">Pinjaman Saya</a>
                 </div>
             </div>
         </li>

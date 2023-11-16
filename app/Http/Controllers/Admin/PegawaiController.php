@@ -71,7 +71,7 @@ class PegawaiController extends Controller
         $pegawai->jenis_kelamin = $request->jenis_kelamin;
         $pegawai->notelp = $request->notelp;
 
-        $pegawai->save();
+        $pegawai->update();
 
         return redirect(route('pegawai.index'))->with('success', 'Berhasil diubah!');
     }

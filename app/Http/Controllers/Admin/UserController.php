@@ -76,8 +76,6 @@ class UserController extends Controller
 
         $validatedData = $request->validate([
             'name' => 'required',
-            'nim' => 'required|unique:users',
-            'email' => 'required|email|unique:users',
             'jenis_kelamin' => 'required',
             'notelp' => 'required',
             'semester' => 'required',
@@ -101,7 +99,7 @@ class UserController extends Controller
             $mahasiswa->foto_ktm = $request->file('foto_ktm')->getClientOriginalName();
         }
         
-        $mahasiswa->save();
+        $mahasiswa->update();
     
         return redirect(route('mahasiswa.index'))->with('success', 'Berhasil diubah!');
     }
