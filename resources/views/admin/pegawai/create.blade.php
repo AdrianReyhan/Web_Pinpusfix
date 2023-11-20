@@ -71,7 +71,7 @@
                       </select>
                     <div class="mb-3">
                       <label class="form-label">Telepon</label>
-                      <input type="text" class="form-control" name="notelp" value="{{ old('notelp') }}"  placeholder="No Telepeon">
+                      <input type="text" class="form-control" name="notelp" value="{{ old('notelp') }}"  placeholder="No Telepon">
                     </div>
                 </div>
                 <div class="card-footer">
