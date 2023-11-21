@@ -12,16 +12,8 @@ class ProfilController extends Controller
 {
     public function profil()
     {
-<<<<<<< HEAD
-        /*  $loggedInUser = Auth::user();
-        $profile = User::where('id', $loggedInUser)->first(); // Fetch the currently logged-in user
-        return redirect('admin.profile.index', compact('profile')); */
-        $iduser = Auth::id();
-        $profile = User::where('id', $iduser)->first();
-        return view('profile.tampil', ['profile' => $profile]);
-=======
         return view('admin.profil.index')->with('user', auth()->user());
->>>>>>> 71a23822d9747515384e793d989435a0698e4b98
+
     }
 
     public function update(Request $request)
