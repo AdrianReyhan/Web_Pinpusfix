@@ -26,6 +26,16 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::controller(App\Http\Controllers\Admin\ProfilController::class)->group(function () {
+    Route::get('admin/profil', 'profil')->name('profil.admin.index');
+    Route::put('admin/profil', 'update')->name('profil.admin.update');
+});
+
+Route::controller(App\Http\Controllers\Mahasiswa\EditProfileController::class)->group(function () {
+    Route::get('mahasiswa/profil', 'profil')->name('profil.mahasiswa.index');
+    Route::put('mahasiswa/profil', 'update')->name('profil.mahasiswa.update');
+});
+
 Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function () {
 
     Route::controller(App\Http\Controllers\Admin\UserController::class)->group(function () {
@@ -73,9 +83,7 @@ Route::prefix('admin')->middleware(['auth', 'checkRole:admin'])->group(function 
         Route::put('aprove/kembalidenda/{id}', 'kembali_denda_update')->name('kembali.denda.update');
     });
 
-    Route::controller(App\Http\Controllers\Admin\ProfilController::class)->group(function () {
-        Route::get('profil/{id}', 'profil')->name('profil.index');
-    });
+    
 });
 
 
