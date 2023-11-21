@@ -15,6 +15,13 @@ class BarangController extends Controller
         return view('admin.barang.index', ['barangs' => $barangs]);
     }
 
+    /* public function home()
+    {
+        $barangs = Barang::all();
+
+        return view('admin.mahasiswa.index', ['barangs' => $barangs]);
+    } */
+
     public function create()
     {
         return view('admin.barang.create');

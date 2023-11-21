@@ -23,7 +23,7 @@ class HomeController extends Controller
     {
         $users = User::where('role', 'mahasiswa')->get();
 
-        return view('admin.mahasiswa.index', ['users' => $users]);
+        return view('admin.home.index', ['users' => $users]);
     }
 
     
