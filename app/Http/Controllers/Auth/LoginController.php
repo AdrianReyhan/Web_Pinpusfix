@@ -29,9 +29,9 @@ class LoginController extends Controller
      */
     protected function authenticated(){
         if(Auth::user()->role== 'admin'){
-            return redirect('admin/barang')->with('message', 'Welcome Admin');
+            return view('Adminhome')->with('message', 'Welcome Admin');
         }else{
-            return redirect('mahasiswa/pinjam')->with('status', 'Logged in  Sucsesss');
+            return view('Mahasiswahome')->with('status', 'Logged in  Sucsesss');
         }
     }
     /**

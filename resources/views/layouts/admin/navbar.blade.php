@@ -23,3 +23,6 @@
             </li>
           </ul>
         </nav>
+
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
+        <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}" defer></script>

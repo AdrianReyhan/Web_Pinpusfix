@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Foundation\Auth\User;
 
+use App\Models\Barang;
+use App\Models\Peminjam;
 use Illuminate\Http\Request;
+
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -21,9 +25,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $users = User::where('role', 'mahasiswa')->get();
-
-        return view('admin.home.index', ['users' => $users]);
+        $barang = Barang::count();
+        $mahasiswa = User::where('role', 'mahasiswa')->count();
+        $pegawai = User::where('role', 'admin')->count();
+        $peminjam = Peminjam::count();
+        $user = Auth::user();
+        $peminjamuser = Peminjam::where('user_id', $user->id)->where('pinjam_status', '>', 1)->count();
+        if(Auth::user()->role== 'admin') { 
+            return view('Adminhome',compact('barang','mahasiswa','pegawai','peminjam'));
+            }
+            else{
+            return view('Mahasiswahome',compact('barang','peminjamuser'));
+            }
     }
 
     
