@@ -3,11 +3,11 @@
 
 
 @section('sidebar')
-@include('layouts.mahasiswa.navbar')
+@include('layouts.mahasiswa.sidebar')
 @endsection
 
 @section('navbar')
-@include('layouts.mahasiswa.sidebar')
+@include('layouts.mahasiswa.navbar')
 @endsection
 
 <!-- @section('judul')

@@ -8,7 +8,7 @@
                 <div class="row align-items-center">
                     <div class="col mr-2">
                         <div class="text-sm text-light font-weight-bold text-uppercase mb-1">Barang</div>
-                        <div class="text-sm text-light h5 mb-0 font-weight-bold"> {{$barang}} </div>
+                        <div class="text-sm text-light h5 mb-0 font-weight-bold"> {{ $barang }} </div>
                         <div class="button mt-2"><a href="/mahasiswa/pinjam" class="text-light">Lihat</a></div>
                     </div>
                     <div class="col-auto">
