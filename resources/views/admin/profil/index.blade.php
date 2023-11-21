@@ -20,14 +20,14 @@
     <div class="main-wrapper">
       <div class="main-content">
         <div class="container">
-          <form method="post" action="{{ route('mahasiswa.update', $mahasiswa->id) }}" enctype="multipart/form-data">
-            @method('PUT')
-            @csrf
+            <form method="post" action="{{ route('profil.admin.update', ['id' => $user->id]) }}" enctype="multipart/form-data">
+                @method('PUT')
+                @csrf
             <div class="card mt-5">
               <div class="card-header" style="background-color: #4169E1	; color: white; text-align: center;">
                 <div class="d-flex justify-content-between align-items-center">
-                  <h3>Edit Mahasiswa</h3>
-                  <a href="{{ route('mahasiswa.index') }}" class="btn btn-danger mb-12">Back</a>
+                  <h3>Edit user</h3>
+                  <a href="{{ route('barang.index') }}" class="btn btn-danger mb-12">Back</a>
                 </div>
               </div>
               <div class="card-body">
@@ -61,51 +61,29 @@
                 @endif
                 <div class="mb-3">
                   <label class="form-label">Nama</label>
-                  <input type="text" class="form-control" name="name" value="{{ $mahasiswa->name }}" placeholder="Nama">
+                  <input type="text" class="form-control" name="name" value="{{ $user->name }}" placeholder="Nama">
                 </div>
                 <div class="mb-3">
-                  <label class="form-label">NIM</label>
-                  <input type="text" class="form-control" name="nim" value="{{ $mahasiswa->nim }}" placeholder="NIM">
+                  <label class="form-label">NIP</label>
+                  <input type="text" class="form-control" name="nim" value="{{ $user->nim }}" placeholder="NIM">
                 </div>
                 <div class="mb-3">
                   <label class="form-label">Email</label>
-                  <input type="text" class="form-control" name="email" value="{{ $mahasiswa->email }}" placeholder="Email">
+                  <input type="text" class="form-control" name="email" value="{{ $user->email }}" placeholder="Email">
                 </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="text" class="form-control" name="password" value="{{ $user->password }}" placeholder="password">
+                  </div>
                 <label class="form-label">Jenis Kelamin</label>
-                <select class="form-select" name="jenis_kelamin">
-                  <option value="L" {{ $mahasiswa->jenis_kelamin === 'L' ? 'selected' : '' }}>Laki - laki</option>
-                  <option value="P" {{ $mahasiswa->jenis_kelamin === 'P' ? 'selected' : '' }}>Perempuan</option> 
-                </select>
+                  <select class="form-select" name="jenis_kelamin">
+                      <option value="L" {{ $user->jenis_kelamin === 'L' ? 'selected' : '' }}>Laki - laki</option>
+                      <option value="P" {{ $user->jenis_kelamin === 'P' ? 'selected' : '' }}>Perempuan</option>
+                  </select>
                 <div class="mb-3">
                   <label class="form-label">Telepon</label>
-                  <input type="text" class="form-control" name="notelp" value="{{ $mahasiswa->notelp }}" placeholder="No Telepeon">
+                  <input type="text" class="form-control" name="notelp" value="{{ $user->notelp }}" placeholder="No Telepeon">
                 </div>
-                <div class="mb-3">
-                  <label class="form-label">Semester</label>
-                  <input type="text" class="form-control" name="semester" value="{{ $mahasiswa->semester }}" placeholder="semester">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Prodi</label>
-                  <input type="text" class="form-control" name="prodi" value="{{ $mahasiswa->prodi }}" placeholder="prodi">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Kelas</label>
-                  <input type="text" class="form-control" name="kelas" value="{{ $mahasiswa->kelas }}" placeholder="kelas">
-                </div>
-                <div class="mb-3">
-                  <label class="form-label">Foto KTM</label>
-                  @if ($mahasiswa->foto_ktm)
-                  <img src="{{ asset('fotoktm/' . $mahasiswa->foto_ktm) }}" style="max-width: 100px; max-height: 100px;">
-                  @else
-                  <p>No Image</p>
-                  @endif
-                  <div class="mt-3">
-                    <label class="form-label">Ganti Foto KTM</label>
-                    <input type="file" class="form-control" name="foto_ktm" placeholder="foto_ktm">
-                  </div>
-                </div>
-
-
               </div>
               <div class="card-footer">
                 <button class="btn btn-primary" type="submit">Update</button>

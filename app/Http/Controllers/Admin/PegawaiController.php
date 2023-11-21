@@ -56,13 +56,7 @@ class PegawaiController extends Controller
 
     public function update(Request $request, $id)
     {
-        $validatedData = $request->validate([
-            'name' => 'required',
-            'nim' => 'required',
-            'email' => 'required|email',
-            'jenis_kelamin' => 'required',
-            'notelp' => 'required',
-        ]);
+       
         
         $pegawai = User::find($id);
         $pegawai->name = $request->name;

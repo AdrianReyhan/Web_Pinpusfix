@@ -73,8 +73,8 @@
                 </div>
                 <label class="form-label">Jenis Kelamin</label>
                 <select class="form-select" name="jenis_kelamin">
-                  <option value="L" {{ old('jenis_kelamin') === 'L' ? 'selected' : '' }}>Laki - laki</option>
-                  <option value="P" {{ old('jenis_kelamin') === 'P' ? 'selected' : '' }}>Perempuan</option>
+                  <option value="L" {{ $pegawai->jenis_kelamin === 'L' ? 'selected' : '' }}>Laki - laki</option>
+                  <option value="P" {{ $pegawai->jenis_kelamin === 'P' ? 'selected' : '' }}>Perempuan</option>
                 </select>
                 <div class="mb-3">
                   <label class="form-label">Telepon</label>
