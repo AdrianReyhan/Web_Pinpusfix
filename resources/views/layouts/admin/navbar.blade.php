@@ -11,7 +11,7 @@
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
 <<<<<<< HEAD
-              <a class="dropdown-item" href="{{ route('profil.index', Auth::user()->id) }}">
+             
 =======
                 <a class="dropdown-item" href="{{ route('profil.admin.index') }}">
 >>>>>>> 71a23822d9747515384e793d989435a0698e4b98
