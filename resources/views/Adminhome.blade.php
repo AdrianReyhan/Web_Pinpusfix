@@ -7,7 +7,7 @@
                 <div class="row align-items-center">
                     <div class="col mr-2">
                         <div class="text-sm font-weight-bold text-uppercase mb-1 text-light">Mahasiswa</div>
-                        <div class="text-sm text-light h5 mb-0 font-weight-bold"> {{$mahasiswa}} </div>
+                        <div class="text-sm text-light h5 mb-0 font-weight-bold"> {{ $mahasiswa }} </div>
                         <div class="button mt-2"><a href="/admin/mahasiswa" class="text-light">Lihat</a></div>
                     </div>
                     <div class="col-auto">
@@ -24,7 +24,7 @@
                 <div class="row align-items-center">
                     <div class="col mr-2">
                         <div class="text-sm text-light font-weight-bold text-uppercase mb-1">Barang</div>
-                        <div class="text-sm text-light h5 mb-0 font-weight-bold">{{$barang}}</div>
+                        <div class="text-sm text-light h5 mb-0 font-weight-bold"> {{ $barang }} </div>
                         <div class="button mt-2"><a href="/admin/barang" class="text-light">Lihat</a></div>
                     </div>
                     <div class="col-auto">
@@ -41,7 +41,7 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-sm text-light font-weight-bold text-uppercase mb-1">Peminjam</div>
-                        <div class="h5 mb-0 mr-3 font-weight-bold text-light">{{$peminjam}}</div>
+                        <div class="h5 mb-0 mr-3 font-weight-bold text-light"> {{ $peminjam }} </div>
                         <div class="button mt-2"><a href="/admin/approve" class="text-light">Lihat</a></div>
                     </div>
                     <div class="col-auto">
