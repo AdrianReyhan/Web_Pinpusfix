@@ -106,9 +106,13 @@
                         @if ($peminjam->status === 'pending')
                         <form action="{{ route('aprove.setuju', $peminjam->id) }}" method="POST">
                           @csrf
+                          <div class="button-container">
                           <button type="submit" class="btn btn-success btn-sm">Setuju</button>
+                          </div>
                         </form>
+                        <div class="button-container">
                         <a href="{{ route('aprove.tolak', $peminjam->id) }}" class="btn btn-danger btn-sm ml-2">Tolak</a>
+                      </div>
                         @elseif ($peminjam->status === 'setuju')
                         <div class="button-container">
                           <a href="{{ route('aprove.kembali', $peminjam->id) }}" class="btn btn-success btn-sm">Kembali</a>

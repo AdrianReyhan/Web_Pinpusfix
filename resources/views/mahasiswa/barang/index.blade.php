@@ -45,21 +45,7 @@
           <div class="container">
             <div class="card mt-5">
               <div class="card-header" style="background-color: #4169E1; color: white; text-align: center;">
-                <?php
-                  $pinjam_utama = \App\Models\Peminjam::where('user_id', Auth::user()->id)->where('pinjam_status',"0")->first();
-              
-                  if ($pinjam_utama) {
-                        // Jika $pinjam_utama tidak null
-                        $notif = \App\Models\Peminjaman_detail::where('pinjam_id', $pinjam_utama->id)->count();
-                    } else {
-                        // Jika $pinjam_utama null
-                        $notif = 0;
-}
-                ?>
                 <h3>Data Barang</h3>
-                <a class="nav-link" href="{{route('pinjam.checkout')}} ">
-                  <i class="fas fa-shopping-cart"></i>
-                  <span class="badge badge-danger">{{ $notif }}</span></a>
               </div>
               <div class="card-body">
                 @if (session('success'))

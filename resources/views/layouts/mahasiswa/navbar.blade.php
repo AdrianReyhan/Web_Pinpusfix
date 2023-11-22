@@ -3,6 +3,23 @@
         <i class="fa fa-bars"></i>
     </button>
     <ul class="navbar-nav ml-auto">
+        <?php
+        $pinjam_utama = \App\Models\Peminjam::where('user_id', Auth::user()->id)->where('pinjam_status',"0")->first();
+    
+        if ($pinjam_utama) {
+              // Jika $pinjam_utama tidak null
+              $notif = \App\Models\Peminjaman_detail::where('pinjam_id', $pinjam_utama->id)->count();
+          } else {
+              // Jika $pinjam_utama null
+              $notif = 0;
+}
+      ?>
+    <div class="topbar-divider d-none d-sm-block"></div>
+    <li class="nav-item dropdown no-arrow">
+      <a class="nav-link" href="{{route('pinjam.checkout')}} ">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="badge badge-danger">{{ $notif }}</span></a>
+    </li>
 
         <div class="topbar-divider d-none d-sm-block"></div>
         <li class="nav-item dropdown no-arrow">
