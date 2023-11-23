@@ -18,23 +18,31 @@
         text-align: center;
       }
 
-      .panel-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+      .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
-      .card {
-            width: 45%;
-            margin: 10px;
+      .panel-container {
+            float: left;
+            text-align: left;
+           justify-content: space-around;
+        }
+
+        .card {
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-right: 10px;
         }
 
       .card img {
-            max-width: 100px;
-            max-height: 100px;
-            display: block;
-            margin: 0 auto;
+            max-width: 89px;
+            max-height: 89px;
+            margin:  auto;
+            display: flex;
+
         }
+        
     </style>
 
   </head>
@@ -56,32 +64,38 @@
                   <div class="alert alert-danger">{{ session('error') }}</div>
                 @endif
                 <div class="panel-container">
-                  @forelse ($barangs as $alat)
-                  <div class="card">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-md-5 mx-auto">
-                          <img src="{{ asset('fotobarang/' . $alat->foto) }}" alt="Foto Barang">
-                        </div>
-                        <div class="col-md-7">
-                          <h4>{{ $alat->nama_barang }}</h4>
-                          <p>Jumlah Tersedia: {{ $alat->jumlah_tersedia }}</p>
-                          <form action="{{ route('pinjam.pinjam', $alat->id) }}" method="POST">
-                            @csrf
-                            <div class="input-group mb-3">
-                              <input type="text" class="form-control" name="jumlah" placeholder="Jumlah" aria-label="Jumlah yang ingin dipinjam" aria-describedby="basic-addon2">
+                  <div class="row">
+                    @forelse ($barangs as $alat)
+                      <div class="col-md-6">
+                        <div class="card mt-4">
+                          <div class="card-body">
+                            <div class="row">
+                              <div class="col-md-5">
+                                <img src="{{ asset('fotobarang/' . $alat->foto) }}" alt="Foto Barang" class="img-fluid">
+                              </div>
+                              <div class="col-md-7">
+                                <h4>{{ $alat->nama_barang }}</h4>
+                                <p>Jumlah Tersedia: {{ $alat->jumlah_tersedia }}</p>
+                                <form action="{{ route('pinjam.pinjam', $alat->id) }}" method="POST">
+                                  @csrf
+                                  <div class="input-group mb-3">
+                                    <input type="text" class="form-control" name="jumlah" placeholder="Jumlah" aria-label="Jumlah yang ingin dipinjam" aria-describedby="basic-addon2">
+                                  </div>
+                                  <div class="input-group mb-3">
+                                    <button class="btn btn-success" type="submit">Meminjam</button>
+                                  </div>
+                                </form>
+                              </div>
                             </div>
-                            <div class="input-group mb-3">
-                              <button class="btn btn-success" type="submit">Meminjam</button>
-                            </div>
-                          </form>
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    @empty
+                      <div class="col-md-12">
+                        <p>No record found!</p>
+                      </div>
+                    @endforelse
                   </div>
-                  @empty
-                  <p>No record found!</p>
-                  @endforelse
                 </div>
               </div>
             </div>
