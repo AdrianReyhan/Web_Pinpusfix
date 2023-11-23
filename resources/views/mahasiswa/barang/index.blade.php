@@ -3,78 +3,94 @@
 @section('content')
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My App</title>
-    
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    
-    <style>
-      th {
-        text-align: center;
-      }
-      td {
-        text-align: center;
-      }
 
-      .panel-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>My App</title>
 
-      .card {
-            width: 45%;
-            margin: 10px;
-        }
+  <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
-      .card img {
-            max-width: 100px;
-            max-height: 100px;
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
+  <style>
+    th {
+      text-align: center;
+    }
 
-  </head>
-  <body>
-    <div id="app">
-      <div class="main-wrapper">
-        <div class="main-content">
-          <div class="container">
-            <div class="card mt-5">
-              <div class="card-header" style="background-color: #4169E1; color: white; text-align: center;">
-                <?php
-                  $pinjam_utama = \App\Models\Peminjam::where('user_id', Auth::user()->id)->where('pinjam_status',"0")->first();
-              
-                  if ($pinjam_utama) {
-                        // Jika $pinjam_utama tidak null
-                        $notif = \App\Models\Peminjaman_detail::where('pinjam_id', $pinjam_utama->id)->count();
-                    } else {
-                        // Jika $pinjam_utama null
-                        $notif = 0;
-}
-                ?>
-                <h3>Data Barang</h3>
-                <a class="nav-link" href="{{route('pinjam.checkout')}} ">
-                  <i class="fas fa-shopping-cart"></i>
-                  <span class="badge badge-danger">{{ $notif }}</span></a>
-              </div>
-              <div class="card-body">
-                @if (session('success'))
-                  <div class="alert alert-success">{{ session('success') }}</div>
-                @endif
+    td {
+      text-align: center;
+    }
 
-                @if (session('error'))
-                  <div class="alert alert-danger">{{ session('error') }}</div>
-                @endif
-                <div class="panel-container">
-                  @forelse ($barangs as $alat)
-                  <div class="card">
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+
+    .panel-container {
+      justify-content: center;
+      float: left;
+      text-align: left;
+      justify-content: space-around;
+    }
+
+    .card {
+      margin-top: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .card img {
+      max-width: 100px;
+      max-height: 100px;
+      display: block;
+      margin: 0 auto;
+      max-width: 89px;
+      max-height: 89px;
+      margin: auto;
+      display: flex;
+    }
+  </style>
+
+</head>
+
+<body>
+  <div id="app">
+    <div class="main-wrapper">
+      <div class="main-content">
+        <div class="container">
+          <div class="card mt-5">
+            <div class="card-header" style="background-color: #4169E1; color: white; text-align: center;">
+              <?php
+              $pinjam_utama = \App\Models\Peminjam::where('user_id', Auth::user()->id)->where('pinjam_status', "0")->first();
+
+              if ($pinjam_utama) {
+                // Jika $pinjam_utama tidak null
+                $notif = \App\Models\Peminjaman_detail::where('pinjam_id', $pinjam_utama->id)->count();
+              } else {
+                // Jika $pinjam_utama null
+                $notif = 0;
+              }
+              ?>
+              <h3>Data Barang</h3>
+              <a class="nav-link" href="{{route('pinjam.checkout')}} ">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="badge badge-danger">{{ $notif }}</span></a>
+            </div>
+            <div class="card-body">
+              @if (session('success'))
+              <div class="alert alert-success">{{ session('success') }}</div>
+              @endif
+
+              @if (session('error'))
+              <div class="alert alert-danger">{{ session('error') }}</div>
+              @endif
+              <div class="row">
+                @forelse ($barangs as $alat)
+                <div class="col-md-6">
+                  <div class="card mt-4">
                     <div class="card-body">
                       <div class="row">
-                        <div class="col-md-5 mx-auto">
+                        <div class="col-md-5">
                           <img src="{{ asset('fotobarang/' . $alat->foto) }}" alt="Foto Barang">
                         </div>
                         <div class="col-md-7">
@@ -90,6 +106,7 @@
                             </div>
                           </form>
                         </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -99,15 +116,12 @@
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}" defer></script>
     <script src="{{ asset('assets/js/jquery-3.7.0.min.js') }}" defer></script>
-    
-  </body>
+
+</body>
+
 </html>
 
 @endsection
