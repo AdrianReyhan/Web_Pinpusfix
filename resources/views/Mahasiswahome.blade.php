@@ -40,11 +40,11 @@
 
 <div class="card bg-gradient-secondary">
     <div class="container">
-        <h3 class="text-light"> <i class="fa-solid fa-circle-info text-light my-3"></i> Informasi Aturan Peminjaaman</h3>
+        <h3 class="text-light"> <i class="fa-solid fa-circle-info text-light my-3"></i> Informasi Aturan Peminjaman</h3>
         <ol class=text-light>
             <li class=text-light>Waktu peminjaman maksimal 1 minggu</li>
             <li class=text-light>Setiap anggota hanya dapat meminjam maksimal 5 barang</li>
-            <li class=text-light>Jika pengenbalian barang lebih dari waktu yang ditentukan akan diberikan denda setiap buku Rp.15.000/minggu.</li>
+            <li class=text-light>Jika pengenbalian barang lebih dari waktu yang ditentukan akan diberikan denda setiap barang Rp.15.000/minggu.</li>
             <li class=text-light>Jika telah meminjam barang,silahkan ke tempat petugas untuk melakukan konfirmasi</li>
             <li class=text-light>Jika Terlambat mengembalikan barang dan mendapat denda, maka wajib langsung membayar pada petugas saat mengembalikan buku</li>
         </ol>
